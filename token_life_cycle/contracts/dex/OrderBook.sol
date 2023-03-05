@@ -8,7 +8,7 @@ contract OrderBook {
     using SafeERC20 for IERC20;
 
     uint public totalOffers;
-    uint public constant feeRate = 1000;
+    uint public constant FEE_RATE = 1000; 
     
     address public immutable ownerAddress;
 
@@ -70,7 +70,7 @@ contract OrderBook {
 
     function executeOrder(bytes32 _orderId, uint _amount)external offerActive(_orderId){
         address _user = msg.sender;
-        uint feeAmount = _amount / feeRate;
+        uint feeAmount = _amount / FEE_RATE;
         require(IERC20(offers[_orderId].buyToken).balanceOf(_user) >= _amount, "OrderBook: Not enough tokens");
         require(IERC20(offers[_orderId].buyToken).balanceOf(_user) >= _amount + feeAmount, "OrderBook: Not enough fee for order execution");
         uint amountOut;
