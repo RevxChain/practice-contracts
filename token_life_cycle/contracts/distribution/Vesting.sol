@@ -27,11 +27,12 @@ contract Vesting is AccessControl{
     event UnlockedByUser(address indexed user, uint newUnlocked);
     event ClaimedByUser(address indexed user, uint newClaimed);
         
-    constructor(address _tokenSaleAddress, address _tokenAddress, address _multiSigSafe)  {
+    constructor(address _tokenSaleAddress, address _tokenAddress, address _multiSigSafe, uint _teamPool)  {
         _setupRole(DEFAULT_ADMIN_ROLE, tx.origin);
         tokenSaleAddress = _tokenSaleAddress;
         tokenAddress = _tokenAddress;
         multiSigSafe = _multiSigSafe;
+        teamPool = _teamPool;
     }
 
     function locked(address _user)external returns(uint){
