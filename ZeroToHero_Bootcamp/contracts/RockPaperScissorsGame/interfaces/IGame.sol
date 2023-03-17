@@ -3,11 +3,11 @@ pragma solidity ^0.8.17;
 
 interface IGame{
 
-    function createSoloGameBNB(uint answer)external payable returns(uint gameId);
+    function createSoloGameEther(uint answer)external payable returns(uint gameId);
 
-    function finishSoloGameBNB(uint gameId)external;
+    function finishSoloGameEther(uint gameId)external;
 
-    function forceFinishSoloGameBNB(uint gameId, address user)external;
+    function forceFinishSoloGameEther(uint gameId, address user)external;
 
     function createSoloGameToken(uint answer, address token, uint amount)external returns(uint gameId);
 
@@ -15,15 +15,15 @@ interface IGame{
 
     function forceFinishSoloGameToken(uint gameId, address user)external;
 
-    function createOnlineGameBNB(bytes32 answerHash)external payable returns(uint gameId);
+    function createOnlineGameEther(bytes32 answerHash)external payable returns(uint gameId);
 
-    function participateOnlineGameBNB(uint gameId, uint answer)external payable;
+    function participateOnlineGameEther(uint gameId, uint answer)external payable;
 
-    function finishOnlineGameBNB(uint gameId, uint answer, string memory salt)external;
+    function finishOnlineGameEther(uint gameId, uint answer, string memory salt)external;
 
-    function refundBetFromExpiredOnlineGameBNB(uint gameId)external;
+    function refundBetFromExpiredOnlineGameEther(uint gameId)external;
 
-    function cancelOnlineGameBNB(uint gameId)external;
+    function cancelOnlineGameEther(uint gameId)external;
 
     function createOnlineGameToken(bytes32 answerHash, address token, uint amount)external returns(uint gameId);
 
@@ -33,13 +33,13 @@ interface IGame{
 
     function refundBetFromExpiredOnlineGameToken(uint gameId)external;
 
-    function cancelOnlineGameToken(uint gameId)external;
+    function cancelOnlineGameToken(uint gameId)external; 
 
-    function fillBNBRewardPool()external payable;
+    function fillEtherRewardPool()external payable;
 
     function fillTokenRewardPool(address token, uint amount)external;
 
-    function withdrawBNB(uint amount)external;
+    function withdrawEther(uint amount)external;
 
     function withdrawToken(address token, uint amount)external;
 
