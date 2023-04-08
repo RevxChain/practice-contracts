@@ -31,8 +31,8 @@ contract Protocol is AccessControl, ReentrancyGuard{
     event UserBorrow(address indexed user, address indexed token, uint underlyingAmount, uint time);
     event UserRedeem(address indexed user, address indexed token, uint underlyingAmount, uint time);
     event UserLiquidated(address indexed user, address indexed liquidator, uint userBorrow, uint userCollateral, uint time);
-    event UserLiquidatedByProtocol(address indexed _user, uint time);
-    event UserLiquidatable(address indexed _user, uint userBorrow, uint userCollateral, uint time);
+    event UserLiquidatedByProtocol(address indexed user, uint time);
+    event UserLiquidatable(address indexed user, uint userBorrow, uint userCollateral, uint time);
 
     modifier marketExist(address _token){
         require(marketOperatorExistence[_token] == true && marketOperator[_token] != address(0), "Lending: Market is not exist");
